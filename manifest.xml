@@ -6,7 +6,7 @@
 	
 	<category>administration</category>
 	<description>Verification tools for Elgg</description>
-	<version>2.0</version>
+	<version>2.1</version>
 	
 	<author>Nikolai Shcherbin</author>
 	<website>https://wzm.me</website>
@@ -33,6 +33,12 @@
         <type>priority</type>
         <plugin>vision_theme</plugin>
         <priority>after</priority>
+    </requires>
+	
+	<requires>
+        <type>priority</type>
+        <plugin>theme</plugin>
+        <priority>before</priority>
     </requires>
 	
 	<conflicts>
