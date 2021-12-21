@@ -8,6 +8,23 @@
 **/
 
 return [
+	'plugin' => [
+		'name' => 'Verification',
+		'version' => '3.0.0',
+		'dependencies' => [
+			'profile' => [
+				'position' => 'after',
+			],
+			'vision_theme' => [
+				'position' => 'after',
+			],
+			'theme' => [
+				'position' => 'after',
+			],
+		],
+		'activate_on_install' => true,
+	],
+	
 	'bootstrap' => \wZm\Verification\Bootstrap::class,
 	
 	'actions' => [

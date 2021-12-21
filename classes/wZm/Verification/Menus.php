@@ -40,7 +40,7 @@ class Menus {
 		$return[] = ElggMenuItem::factory([
 			'name' => 'unverify',
 			'text' => elgg_echo('verification:user:verify:remove'),
-			'icon' => 'close',
+			'icon' => 'times',
 			'href' => elgg_generate_action_url('verification/user', [
 				'guid' => $entity->guid,
 			]),
