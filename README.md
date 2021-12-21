@@ -1,7 +1,7 @@
 Verification
 ==============
 
-![Elgg 3.3](https://img.shields.io/badge/Elgg-3.3-green.svg)
+![Elgg 4.0](https://img.shields.io/badge/Elgg-4.0-orang.svg)
 
 Verification tools for Elgg
 
