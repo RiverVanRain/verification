@@ -4,6 +4,13 @@
 	"description": "Verification tools for Elgg",
     "license": "AGPL-3.0-or-later",
 	"keywords": ["administration"],
+	"homepage": "https://wzm.me",
+	"authors": [
+		{
+		  "name": "Nikolai Shcherbin",
+		  "email": "support@wzm.me"
+		}
+	],
 	"require": {
 		"composer/installers": "^1.0.8"
 	},
@@ -20,5 +27,8 @@
     ],
 	"conflict": {
 		"elgg/elgg": "<4.0"
+	},
+	"support": {
+		"source": "https://github.com/rivervanrain/google_api",
 	}
 }
