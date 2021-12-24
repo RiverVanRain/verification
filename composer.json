@@ -29,6 +29,6 @@
 		"elgg/elgg": "<4.0"
 	},
 	"support": {
-		"source": "https://github.com/rivervanrain/google_api",
+		"source": "https://github.com/rivervanrain/verification"
 	}
 }
