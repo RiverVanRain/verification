@@ -10,16 +10,19 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '3.0.0',
+		'version' => '3.0.1',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
+				'must_be_active' => true,
 			],
 			'vision_theme' => [
 				'position' => 'after',
+				'must_be_active' => false,
 			],
 			'theme' => [
 				'position' => 'after',
+				'must_be_active' => false,
 			],
 		],
 		'activate_on_install' => true,
