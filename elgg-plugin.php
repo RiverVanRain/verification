@@ -10,15 +10,11 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.0.0',
+		'version' => '4.2.0',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
 				'must_be_active' => true,
-			],
-			'vision_theme' => [
-				'position' => 'after',
-				'must_be_active' => false,
 			],
 			'theme' => [
 				'position' => 'after',

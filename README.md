@@ -1,6 +1,6 @@
 Verification
 ==============
-![Elgg 4.1](https://img.shields.io/badge/Elgg-4.1-green.svg?style=flat-square)
+![Elgg 4.2](https://img.shields.io/badge/Elgg-4.2-green.svg?style=flat-square)
 
 Verification tools for Elgg
 

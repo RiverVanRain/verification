@@ -64,7 +64,6 @@ class Bootstrap extends PluginBootstrap {
 		
 		//views
 		$hooks->registerHandler('view_vars', 'user/elements/summary', Views::class, 999);
-		$hooks->registerHandler('view_vars', 'page/layouts/elements/header', Views::class, 999);
 		
 		//events
 		$events->registerHandler('validate', 'user', [Events::class, 'validateUserEvent']);

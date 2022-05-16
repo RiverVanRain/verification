@@ -11,11 +11,7 @@ class Menus {
 		$entity = $hook->getEntityParam();
 		$return = $hook->getValue();
 		
-		if(!elgg_is_admin_logged_in()) {
-			return;
-		}
-
-		if (!$entity instanceof \ElggUser) {
+		if (!$entity instanceof \ElggUser || !elgg_is_admin_logged_in()) {
 			return;
 		}
 		
