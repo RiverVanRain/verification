@@ -8,19 +8,9 @@
 **/
 namespace wZm\Verification;
 
-use Elgg\Includer;
 use Elgg\PluginBootstrap;
 
 class Bootstrap extends PluginBootstrap {
-
-	/**
-	 * Get plugin root
-	 * @return string
-	 */
-	protected function getRoot() {
-		return $this->plugin->getPath();
-	}
-
 	/**
 	 * Executed during 'plugin_boot:before', 'system' event
 	 *
@@ -29,7 +19,7 @@ class Bootstrap extends PluginBootstrap {
 	 * @return void
 	 */
 	public function load() {
-		Includer::requireFileOnce($this->getRoot() . '/autoloader.php');
+		
 	}
 	
 	/**
@@ -52,26 +42,7 @@ class Bootstrap extends PluginBootstrap {
 	 * @return void
 	 */
 	public function init() {
-		$hooks = $this->elgg()->hooks;
-		$events = $this->elgg()->events;
-		
-		//css
-		elgg_extend_view('elgg.css', 'verification/verification.css');
-		elgg_extend_view('admin.css', 'verification/verification.css');
-		
-		//menus
-		$hooks->registerHandler('register', 'menu:user_hover', Menus::class);
-		
-		//views
-		$hooks->registerHandler('view_vars', 'user/elements/summary', Views::class, 999);
-		
-		//events
-		$events->registerHandler('validate', 'user', [Events::class, 'validateUserEvent']);
-		
-		if ((bool) elgg_get_plugin_setting('verify_admin', 'verification')) {
-			$events->registerHandler('make_admin', 'user', [Events::class, 'makeAdminEvent']);
-			$events->registerHandler('remove_admin', 'user', [Events::class, 'removeAdminEvent']);
-		}
+
 	}
 	
 	/**

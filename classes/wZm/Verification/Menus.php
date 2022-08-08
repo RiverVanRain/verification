@@ -2,12 +2,11 @@
 
 namespace wZm\Verification;
 
-use Elgg\Hook;
 use ElggMenuItem;
 
 class Menus {
 	
-	public function __invoke(Hook $hook) {
+	public function __invoke(\Elgg\Hook $hook) {
 		$entity = $hook->getEntityParam();
 		$return = $hook->getValue();
 		

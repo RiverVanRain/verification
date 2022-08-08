@@ -2,18 +2,14 @@
 
 namespace wZm\Verification\Actions;
 
-use Elgg\EntityPermissionsException;
-use Elgg\Http\ResponseBuilder;
-use Elgg\Request;
-
 class UserVerificationAction {
 
-	public function __invoke(Request $request) {
+	public function __invoke(\Elgg\Request $request) {
 
 		$entity = $request->getEntityParam();
 		
 		if (!$entity instanceof \ElggUser) {
-			throw new EntityPermissionsException();
+			throw new \Elgg\Exceptions\Http\EntityPermissionsException();
 		}
 		
 		if ($entity->isAdmin()) {

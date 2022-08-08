@@ -14,16 +14,16 @@ if (!isset($header)) {
 	unset($vars['title']);
 
 	if ($title) {
-		$title = elgg_view_title($title, [
-			'class' => 'elgg-heading-main',
-		]);
-		
 		$entity = elgg_extract('entity', $vars);
 		if ($entity instanceof \ElggUser && $entity->verified_user) {
 			$title = elgg_format_element('h2', ['class' => 'elgg-heading-main'], $title . elgg_format_element('span', [
 				'class' => 'verified-badge',
 				'title' => elgg_echo('verified:account'),
 			]));
+		} else {
+			$title = elgg_view_title($title, [
+				'class' => 'elgg-heading-main',
+			]);
 		}
 	}
 

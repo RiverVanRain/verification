@@ -10,7 +10,7 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.2.0',
+		'version' => '4.3.0',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
@@ -31,6 +31,48 @@ return [
 			'controller' => \wZm\Verification\Actions\UserVerificationAction::class,
 			'access' => 'admin',
 		],
+    ],
+	
+	'hooks' => [
+        'register' => [
+            'menu:user_hover' => [
+                \wZm\Verification\Menus::class => [],
+			],
+        ],
+		'view_vars' => [
+            'user/elements/summary' => [
+                \wZm\Verification\Views::class => [
+					'priority' => 999,
+				],
+			],
+        ],
+    ],
+	
+	'events' => [
+        'make_admin' => [
+            'user' => [
+                '\wZm\Verification\Events::makeAdminEvent' => [],
+            ],
+        ],
+		'remove_admin' => [
+            'user' => [
+                '\wZm\Verification\Events::removeAdminEvent' => [],
+            ],
+        ],
+		'validate' => [
+            'user' => [
+                '\wZm\Verification\Events::validateUserEvent' => [],
+            ],
+        ],
+    ],
+	
+	'view_extensions' => [
+        'elgg.css' => [
+            'verification/verification.css' => [],
+        ],
+		'admin.css' => [
+            'verification/verification.css' => [],
+        ],
     ],
 
 	'settings' => [

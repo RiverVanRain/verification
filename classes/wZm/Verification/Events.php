@@ -28,6 +28,9 @@ class Events {
 	}
 	
 	public static function makeAdminEvent(Event $event) {
+		if (!(bool) elgg_get_plugin_setting('verify_admin', 'verification')) {
+			return;
+		}
 
 		$entity = $event->getObject();
 
@@ -45,6 +48,9 @@ class Events {
 	}
 	
 	public static function removeAdminEvent(Event $event) {
+		if (!(bool) elgg_get_plugin_setting('verify_admin', 'verification')) {
+			return;
+		}
 
 		$entity = $event->getObject();
 
