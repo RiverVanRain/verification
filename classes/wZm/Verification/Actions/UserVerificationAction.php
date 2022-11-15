@@ -12,10 +12,6 @@ class UserVerificationAction {
 			throw new \Elgg\Exceptions\Http\EntityPermissionsException();
 		}
 		
-		if ($entity->isAdmin()) {
-			return;
-		}
-		
 		if ($entity->verified_user == true) {
 			$entity->verified_user = false;
 			

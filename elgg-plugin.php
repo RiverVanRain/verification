@@ -10,14 +10,14 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.3.0',
+		'version' => '4.3.2',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
 				'must_be_active' => true,
 			],
 			'theme' => [
-				'position' => 'after',
+				'position' => 'before',
 				'must_be_active' => false,
 			],
 		],
