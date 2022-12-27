@@ -19,4 +19,13 @@ return [
 	
 	'settings:verification:verify_admin' => 'Verify user when making him an admin',
 	'settings:verification:verify_admin:help' => 'Automatically verify a user when he becomes an administrator. Removing from administrators will automatically remove the verification of this user. You can verify user manually in the usual way.',
+	
+	'settings:verification:notify_user' => 'Notify users about their verification',
+	
+	'verification:notify:subject' => "Your account on the '%s' has been verified",
+	'verification:notify:body' => "Hi %s,
+
+Your account on the %s has been verified.
+",
+
 ];

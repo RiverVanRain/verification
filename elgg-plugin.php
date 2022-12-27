@@ -10,7 +10,7 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.3.2',
+		'version' => '4.3.3',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
@@ -78,6 +78,7 @@ return [
 	'settings' => [
 		'verify_validate_user' => true,
 		'verify_admin' => true,
+		'notify_user' => false,
 	],
 ];
 

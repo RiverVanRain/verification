@@ -22,5 +22,12 @@ echo elgg_view_field([
 			'checked' => (bool) $entity->verify_admin,
 			'switch' => true,
 		],
+		[
+			'#type' => 'checkbox',
+			'#label' => elgg_echo('settings:verification:notify_user'),
+			'name' => 'params[notify_user]',
+			'checked' => (bool) $entity->notify_user,
+			'switch' => true,
+		],
 	],
 ]);
