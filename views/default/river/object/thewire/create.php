@@ -1,10 +1,13 @@
 <?php
 /**
- * File river view.
+ * The Wire river view.
  */
+if (!elgg_is_active_plugin('thewire')) {
+	return;
+}
 
 $item = elgg_extract('item', $vars);
-if (!$item instanceof ElggRiverItem) {
+if (!$item instanceof \ElggRiverItem) {
 	return;
 }
 

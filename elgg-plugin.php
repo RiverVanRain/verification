@@ -10,7 +10,7 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.3.3',
+		'version' => '4.3.4',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
