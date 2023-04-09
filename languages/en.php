@@ -27,5 +27,7 @@ return [
 
 Your account on the %s has been verified.
 ",
+	'settings:verification:verify_allow_moderators' => 'Moderators can verify users',
+	'settings:verification:verify_allow_supermoderators' => 'Super moderators can verify users',
 
 ];

@@ -2,11 +2,9 @@
 
 namespace wZm\Verification;
 
-use Elgg\Hook;
-
 class Views {
 	
-	public function __invoke(Hook $hook) {
+	public function __invoke(\Elgg\Hook $hook) {
 		
 		$vars = $hook->getValue();
 		

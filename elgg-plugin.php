@@ -7,10 +7,16 @@
  * @link https://wzm.me
 **/
 
+$access = 'admin';
+
+if ((bool) elgg_get_plugin_setting('verify_allow_moderators', 'verification') || (bool) elgg_get_plugin_setting('verify_allow_supermoderators', 'verification')) {
+	$access = 'logged_in';
+}
+
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '4.3.4',
+		'version' => '4.3.5',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
@@ -29,14 +35,16 @@ return [
 	'actions' => [
 		'verification/user' => [
 			'controller' => \wZm\Verification\Actions\UserVerificationAction::class,
-			'access' => 'admin',
+			'access' => $access,
 		],
     ],
 	
 	'hooks' => [
         'register' => [
             'menu:user_hover' => [
-                \wZm\Verification\Menus::class => [],
+                '\wZm\Verification\Menus::adminMenu' => [],
+				'\wZm\Verification\Menus::moderatorMenu' => [],
+				'\wZm\Verification\Menus::supermoderatorMenu' => [],
 			],
         ],
 		'view_vars' => [
@@ -79,6 +87,8 @@ return [
 		'verify_validate_user' => true,
 		'verify_admin' => true,
 		'notify_user' => false,
+		'verify_allow_moderators' => false,
+		'verify_allow_supermoderators' => false,
 	],
 ];
 
