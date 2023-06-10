@@ -22,35 +22,5 @@ echo elgg_view_field([
 			'checked' => (bool) $entity->verify_admin,
 			'switch' => true,
 		],
-		[
-			'#type' => 'checkbox',
-			'#label' => elgg_echo('settings:verification:notify_user'),
-			'name' => 'params[notify_user]',
-			'checked' => (bool) $entity->notify_user,
-			'switch' => true,
-		],
 	],
 ]);
-
-//Elgg Theme
-if (elgg_is_active_plugin('theme')) {
-	echo elgg_view_field([
-		'#type' => 'fieldset',
-		'fields' => [
-			[
-				'#type' => 'checkbox',
-				'#label' => elgg_echo('settings:verification:verify_allow_moderators'),
-				'name' => 'params[verify_allow_moderators]',
-				'checked' => (bool) $entity->verify_allow_moderators,
-				'switch' => true,
-			],
-			[
-				'#type' => 'checkbox',
-				'#label' => elgg_echo('settings:verification:verify_allow_supermoderators'),
-				'name' => 'params[verify_allow_supermoderators]',
-				'checked' => (bool) $entity->verify_allow_supermoderators,
-				'switch' => true,
-			],
-		],
-	]);
-}

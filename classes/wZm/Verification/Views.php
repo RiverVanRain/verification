@@ -4,9 +4,9 @@ namespace wZm\Verification;
 
 class Views {
 	
-	public function __invoke(\Elgg\Hook $hook) {
+	public function __invoke(\Elgg\Event $event) {
 		
-		$vars = $hook->getValue();
+		$vars = $event->getValue();
 		
 		$entity = elgg_extract('entity', $vars);
 		if (!$entity instanceof \ElggUser) {

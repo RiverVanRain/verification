@@ -8,9 +8,9 @@
 **/
 namespace wZm\Verification;
 
-use Elgg\PluginBootstrap;
+use Elgg\DefaultPluginBootstrap;
 
-class Bootstrap extends PluginBootstrap {
+class Bootstrap extends DefaultPluginBootstrap {
 	/**
 	 * Executed during 'plugin_boot:before', 'system' event
 	 *

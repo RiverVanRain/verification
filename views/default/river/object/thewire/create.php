@@ -1,18 +1,15 @@
 <?php
 /**
- * The Wire river view.
+ * File river view.
  */
-if (!elgg_is_active_plugin('thewire')) {
-	return;
-}
 
 $item = elgg_extract('item', $vars);
-if (!$item instanceof \ElggRiverItem) {
+if (!$item instanceof ElggRiverItem) {
 	return;
 }
 
 $object = $item->getObjectEntity();
-$vars['message'] = thewire_filter($object->description);
+$vars['message'] = thewire_filter((string) $object->description);
 
 $subject = $item->getSubjectEntity();
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);

@@ -14,8 +14,8 @@ if (!$comment instanceof \ElggComment) {
 	return;
 }
 
-$entity = get_entity($comment->container_guid);
-$commenter = get_user($comment->owner_guid);
+$entity = $comment->getContainerEntity();
+$commenter = $comment->getOwnerEntity();
 if (!$entity || !$commenter) {
 	return;
 }
@@ -27,7 +27,7 @@ if ($comment->canEdit()) {
 if ($full_view) {
 	if (elgg_extract('show_excerpt', $vars)) {
 		$body = elgg_view('output/longtext', [
-			'value' => elgg_get_excerpt($comment->description),
+			'value' => elgg_get_excerpt((string) $comment->description),
 		]);
 	} else {
 		$body = elgg_view('output/longtext', [
@@ -89,7 +89,7 @@ if ($full_view) {
 		'text' => $entity->getDisplayName() ?: elgg_echo('untitled'),
 	]);
 
-	$excerpt = elgg_get_excerpt($comment->description, 80);
+	$excerpt = elgg_get_excerpt((string) $comment->description, 80);
 	$posted = elgg_echo('generic_comment:on', [$commenter_link, $entity_link]);
 
 	$body = elgg_format_element('span', [
