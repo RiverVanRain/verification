@@ -22,7 +22,11 @@ return [
 			],
 			'thewire' => [
 				'position' => 'after',
-				'must_be_active' => true,
+				'must_be_active' => false,
+			],
+			'tidypics' => [
+				'position' => 'after',
+				'must_be_active' => false,
 			],
 		],
 		'activate_on_install' => true,
