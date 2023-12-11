@@ -10,7 +10,7 @@
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '5.0.0',
+		'version' => '5.0.1',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
@@ -19,6 +19,10 @@ return [
 			'theme' => [
 				'position' => 'after',
 				'must_be_active' => false,
+			],
+			'thewire' => [
+				'position' => 'after',
+				'must_be_active' => true,
 			],
 		],
 		'activate_on_install' => true,
