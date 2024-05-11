@@ -7,14 +7,20 @@
  * @link https://wzm.me
 **/
 
+$required = true;
+
+if (elgg_is_active_plugin('theme')) {
+	$required = false;
+}
+
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '5.0.1',
+		'version' => '5.0.2',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
-				'must_be_active' => true,
+				'must_be_active' => $required,
 			],
 			'theme' => [
 				'position' => 'after',
