@@ -13,11 +13,11 @@ class Views {
 			return;
 		}
 		
-		if(!(bool) $entity->verified_user) {
+		if (!(bool) $entity->verified_user) {
 			return;
 		}
 		
-		$title = elgg_extract('title', $vars);
+		$title = (string) elgg_extract('title', $vars);
 		if (empty($title)) {
 			return;
 		}

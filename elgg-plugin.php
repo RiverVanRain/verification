@@ -16,14 +16,14 @@ if (elgg_is_active_plugin('theme')) {
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '5.0.2',
+		'version' => '5.0.3',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
 				'must_be_active' => $required,
 			],
 			'theme' => [
-				'position' => 'after',
+				'position' => 'before',
 				'must_be_active' => false,
 			],
 			'thewire' => [

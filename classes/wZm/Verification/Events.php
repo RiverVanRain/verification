@@ -14,11 +14,11 @@ class Events {
 			return;
 		}
 		
-		if(!(bool) $entity->validated) {
+		if (!(bool) $entity->validated) {
 			return;
 		}
 
-		if((bool) $entity->verified_user) {
+		if ((bool) $entity->verified_user) {
 			return;
 		}
 
@@ -38,7 +38,7 @@ class Events {
 			return;
 		}
 
-		if((bool) $entity->verified_user) {
+		if ((bool) $entity->verified_user) {
 			return;
 		}
 
@@ -58,7 +58,7 @@ class Events {
 			return;
 		}
 
-		if(!(bool) $entity->verified_user) {
+		if (!(bool) $entity->verified_user) {
 			return;
 		}
 

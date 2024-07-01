@@ -31,7 +31,7 @@ if ($subject instanceof \ElggUser && (bool) $subject->verified_user) {
 
 $object_link = elgg_view('output/url', [
 	'href' => $object->getURL(),
-	'text' => elgg_get_excerpt($object->getDisplayName(), 100),
+	'text' => elgg_get_excerpt((string) $object->getDisplayName(), 100),
 	'class' => 'elgg-river-object',
 	'is_trusted' => true,
 ]);

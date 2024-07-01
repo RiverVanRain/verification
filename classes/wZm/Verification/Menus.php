@@ -2,25 +2,24 @@
 
 namespace wZm\Verification;
 
-use ElggMenuItem;
-
 class Menus {
 	
-	public function __invoke(\Elgg\Event $event) {
+	public function __invoke(\Elgg\Event $event): ?\Elgg\Menu\MenuItems {
 		$entity = $event->getEntityParam();
-		$return = $event->getValue();
 		
 		if (!$entity instanceof \ElggUser || !elgg_is_admin_logged_in()) {
-			return;
+			return null;
 		}
 		
 		if (elgg_get_logged_in_user_guid() === $entity->guid) {
-			return;
+			return null;
 		}
+		
+		$return = $event->getValue();
 		
 		$verified = (bool) $entity->verified_user;
 
-		$return[] = ElggMenuItem::factory([
+		$return[] = \ElggMenuItem::factory([
 			'name' => 'verify',
 			'text' => elgg_echo('verification:user:verify'),
 			'icon' => 'check',
@@ -32,7 +31,7 @@ class Menus {
 			'section' => 'admin',
 		]);
 		
-		$return[] = ElggMenuItem::factory([
+		$return[] = \ElggMenuItem::factory([
 			'name' => 'unverify',
 			'text' => elgg_echo('verification:user:verify:remove'),
 			'icon' => 'times',

@@ -14,7 +14,7 @@ if ($title === false) {
 $entity = elgg_extract('entity', $vars);
 if ($title === '' && $entity instanceof ElggEntity) {
 	$title = elgg_view('output/url', [
-		'text' => elgg_get_excerpt($entity->getDisplayName(), 100),
+		'text' => elgg_get_excerpt((string) $entity->getDisplayName(), 100),
 		'href' => $entity->getURL() ?: false,
 	]);
 	

@@ -16,7 +16,7 @@ class UserVerificationAction {
 			return;
 		}
 		
-		if ($entity->verified_user == true) {
+		if ($entity->verified_user === true) {
 			$entity->verified_user = false;
 			
 			$entity->save();
