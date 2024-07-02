@@ -16,12 +16,12 @@ if (!$comment instanceof \ElggComment) {
 
 $entity = $comment->getContainerEntity();
 $commenter = $comment->getOwnerEntity();
-if (!$entity || !$commenter) {
+if (!$entity instanceof \ElggEntity || !$commenter instanceof \ElggEntity) {
 	return;
 }
 
 if ($comment->canEdit()) {
-	elgg_require_js('elgg/comments');
+	elgg_import_esm('elgg/comments');
 }
 
 if ($full_view) {
@@ -38,7 +38,8 @@ if ($full_view) {
 			$body .= elgg_view('output/url', [
 				'text' => elgg_echo('generic_comments:add'),
 				'href' => "#elgg-form-comment-save-{$comment->guid}",
-				'class' => ['elgg-toggle', 'elgg-subtext'],
+				'data-load-comment' => $comment->guid,
+				'class' => ['elgg-subtext', 'elgg-toggle-comment'],
 			]);
 		}
 	}
@@ -49,6 +50,7 @@ if ($full_view) {
 		'access' => false,
 		'title' => false,
 		'show_summary' => true,
+		'tag_name' => 'article',
 		'content' => $body,
 		'imprint' => elgg_extract('imprint', $vars, []),
 		'class' => elgg_extract_class($vars),
@@ -70,31 +72,23 @@ if ($full_view) {
 	
 	echo elgg_view('object/elements/full', $params);
 } else {
-	// brief view
-	$commenter_icon = elgg_view_entity_icon($commenter, 'small');
-
 	$friendlytime = elgg_view_friendly_time($comment->time_created);
 
-	$commenter_link = elgg_view_entity_url($commenter);
+	$verified_link = '';
 	
 	if ($commenter instanceof \ElggUser && (bool) $commenter->verified_user) {
-		$commenter_link .= elgg_format_element('span', [
+		$verified_link = elgg_format_element('span', [
 			'class' => 'verified-badge',
 			'title' => elgg_echo('verified:account'),
 		]);
 	}
 
-	$entity_link = elgg_view('output/url', [
-		'href' => $entity->getURL(),
-		'text' => $entity->getDisplayName() ?: elgg_echo('untitled'),
-	]);
-
 	$excerpt = elgg_get_excerpt((string) $comment->description, 80);
-	$posted = elgg_echo('generic_comment:on', [$commenter_link, $entity_link]);
 
-	$body = elgg_format_element('span', [
-		'class' => 'elgg-subtext',
-	], "$posted ($friendlytime): $excerpt");
+	$posted = elgg_echo('generic_comment:on', [$verified_link, elgg_view_entity_url($commenter), elgg_view_entity_url($entity)]);
 
-	echo elgg_view_image_block($commenter_icon, $body);
+	$body = elgg_format_element('span', ['class' => 'elgg-subtext'], "{$posted} ({$friendlytime}): {$excerpt}");
+
+	echo elgg_view_image_block(elgg_view_entity_icon($commenter, 'small'), $body);
+}
 }

@@ -26,7 +26,7 @@
         }
     ],
 	"conflict": {
-		"elgg/elgg": "<5.0"
+		"elgg/elgg": "<6.0"
 	},
 	"support": {
 		"source": "https://github.com/rivervanrain/verification"

@@ -16,7 +16,7 @@ if (elgg_is_active_plugin('theme')) {
 return [
 	'plugin' => [
 		'name' => 'Verification',
-		'version' => '5.0.3',
+		'version' => '6.0.0',
 		'dependencies' => [
 			'profile' => [
 				'position' => 'after',
