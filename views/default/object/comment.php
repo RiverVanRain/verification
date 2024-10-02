@@ -91,4 +91,3 @@ if ($full_view) {
 
 	echo elgg_view_image_block(elgg_view_entity_icon($commenter, 'small'), $body);
 }
-}
