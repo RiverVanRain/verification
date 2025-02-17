@@ -3,8 +3,12 @@
  * File river view.
  */
 
+if (!elgg_is_active_plugin('thewire')) {
+	return;
+}
+
 $item = elgg_extract('item', $vars);
-if (!$item instanceof ElggRiverItem) {
+if (!$item instanceof \ElggRiverItem) {
 	return;
 }
 
@@ -23,7 +27,7 @@ if ($subject instanceof \ElggUser && (bool) $subject->verified_user) {
 
 $object_link = elgg_view('output/url', [
 	'href' => elgg_generate_url('collection:object:thewire:owner', [
-		'username' => $subject->username,
+		'username' => (string) $subject->username,
 	]),
 	'text' => elgg_echo('thewire:wire'),
 	'class' => 'elgg-river-object',
