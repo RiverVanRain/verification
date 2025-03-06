@@ -11,11 +11,8 @@
 		  "email": "support@wzm.me"
 		}
 	],
-	"require": {
-		"composer/installers": "^1.0.8"
-	},
 	"autoload": {
-		"psr-0": {
+		"psr-4": {
 			"": "classes/"
 		}
 	},
@@ -26,7 +23,7 @@
         }
     ],
 	"conflict": {
-		"elgg/elgg": "<6.0"
+		"elgg/elgg": "<6.1"
 	},
 	"support": {
 		"source": "https://github.com/rivervanrain/verification"
